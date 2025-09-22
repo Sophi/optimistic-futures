@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Random Story Player</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    audio {
+      width: 90%;
+      max-width: 400px;
+      outline: none;
+    }
+  </style>
+  <script>
+    function playRandomStory() {
+      // List all your audio files here
+      const stories = [
+        "Ai liberation.mp3",
+        "ElevenLabs_2025-09-16T21_29_28__s50_v3.mp3",
+        "The Silence.mp3"
+      ];
+
+      // Pick a random story
+      const randomIndex = Math.floor(Math.random() * stories.length);
+      const audioPlayer = document.getElementById("player");
+      audioPlayer.src = stories[randomIndex];
+      audioPlayer.play();
+    }
+  </script>
+</head>
+<body onload="playRandomStory()">
+  <h1>Your Random Story Awaits</h1>
+  <audio id="player" controls autoplay></audio>
+  <p>Refresh the page or scan the NFC tag again for a new story.</p>
+</body>
+</html>
